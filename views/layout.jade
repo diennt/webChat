@@ -1,7 +1,11 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	block head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(type='text/javascript', src='/javascripts/jquery-1.9.1.min.js')
+	body
+		header#banner
+			h1 Awsome chat
+		block content
+		footer Hop you enjoy your stay here
