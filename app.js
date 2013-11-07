@@ -9,8 +9,11 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var sockets = require('./routes/sockets.js');
+var connect = require('connect');
 
 var app = express();
+
+var sessionStore = new connect.session.MemoryStore();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -20,9 +23,12 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.cookieParser('somesuperspecialsecrethere'));
+app.use(express.session({ key : 'express.sid', store : sessionStore }));
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // development only
 if ('development' == app.get('env')) {
@@ -30,7 +36,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/chatroom', routes.chatroom);
+app.get('/rooms', routes.rooms);
 
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

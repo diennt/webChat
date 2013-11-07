@@ -6,8 +6,10 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "socket.io": "latest",
     "express": "3.4.4",
-    "jade": "*"
+    "jade": "*",
+    "socket.io": "latest",
+    "connect" : "latest",
+    "cookie": "latest"
   }
 }
