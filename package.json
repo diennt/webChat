@@ -1,9 +1,17 @@
 {
-  "name": "application-name",
-  "version": "0.0.2",
+  "name": "awsome chat",
+  "version": "0.0.1",
+  "description": "This is an awsome chat",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diennt/webChat.git"
+  },
+  "keywords": {
+    "awsome chat"
   },
   "dependencies": {
     "express": "3.4.4",
@@ -11,5 +19,13 @@
     "socket.io": "latest",
     "connect" : "latest",
     "cookie": "latest"
+  },
+  "author": "diennt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diennt/webChat/issues"
+  },
+  "engines: {
+    "node": "0.10.x"
   }
 }
